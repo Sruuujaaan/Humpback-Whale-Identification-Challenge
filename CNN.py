@@ -54,11 +54,16 @@ print(X.shape)
 print(y.shape)
 
 print(y)
+import pickle
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder = LabelEncoder()
 y = labelencoder.fit_transform(y)
+with open('labekencoder.pickle', 'wb') as handle:
+    pickle.dump(labelencoder, handle, protocol=pickle.HIGHEST_PROTOCOL)
 y = y.reshape(-1, 1)
 onehotencoder = OneHotEncoder()
+with open('onehotencoder.pickle', 'wb') as handle:
+    pickle.dump(onehotencoder, handle, protocol=pickle.HIGHEST_PROTOCOL)
 y = onehotencoder.fit_transform(y).toarray()
 print(len(y[0]))
 
