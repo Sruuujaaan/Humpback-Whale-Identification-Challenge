@@ -105,7 +105,7 @@ targets = np.squeeze(np.array(targets))
 
 siamese_net.fit([left_input,right_input], targets,
           batch_size=16,
-          epochs=1,
+          epochs=10,
           verbose=1,
           validation_data=([left_input, right_input], targets)
                 )
